@@ -1,30 +1,31 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <!-- Menú lateral -->
+    <v-navigation-drawer
+    class="bg-teal-darken-4"
+    theme="dark"
+    permanent
+    >
+      <v-list-item link to="/" title="Grid" prepend-icon="mdi-grid"></v-list-item>
+      <v-list-item link to="/form" title="Form" prepend-icon="mdi-form-textbox"></v-list-item>
+      <v-list-item link to="/card" title="Cards" prepend-icon="mdi-card"></v-list-item>
+      <v-list-item link to="/alert" title="Alerts" prepend-icon="mdi-bell"></v-list-item>
+      <v-list-item link to="/tabs" title="Tabs" prepend-icon="mdi-tab"></v-list-item>
+      <v-list-item link to="/table" title="Tables" prepend-icon="mdi-table"></v-list-item>
+    </v-navigation-drawer>
+    <!-- Carga de componentes -->
+    <v-main>
+      <AppBar />
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import AppBar from './components/AppBar.vue'
+export default {
+  name: 'App',
+  components: {
+  AppBar
+  },
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
